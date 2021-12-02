@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Slot( props ) {
   return (
@@ -7,6 +7,9 @@ export default function Slot( props ) {
       <View
         style={props.player == 0 ? styles.hole :
           props.player == 1 ? styles.red : styles.yellow} >
+        <Text>
+          {props.player}
+        </Text>
       </View>
     </View>
   );
