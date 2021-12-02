@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 export default function Slot( props ) {
   return (
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   red: {
     width: 42,
     height: 42,
-    backgroundColor: "red",
+    backgroundColor: "#ff0000",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 21
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   yellow: {
     width: 42,
     height: 42,
-    backgroundColor: "yellow",
+    backgroundColor: "#ffff00",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 21
