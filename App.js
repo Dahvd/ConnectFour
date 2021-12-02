@@ -6,7 +6,7 @@ import Board from "./src/components/board/Board";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Board cols="7" rows="6"/>
+      <Board />
       <StatusBar style="auto" />
     </View>
   );

@@ -1,13 +1,12 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 
 export default function Slot( props ) {
   return (
     <View style={styles.container} >
-      <View style={styles.hole}>
-        <Text>
-          {props.index}
-        </Text>
+      <View
+        style={props.player == 0 ? styles.hole :
+          props.player == 1 ? styles.red : styles.yellow} >
       </View>
     </View>
   );

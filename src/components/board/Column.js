@@ -1,23 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 import Slot from "./Slot";
 
 
 export default function Column( props ) {
-  const rows = Number( props.rows );
-  const col = new Array( rows ).fill( null );
-  const column = col.map( ( slot, index ) =>
-    <Slot color="#fff" index={index} key={index}/> );
-  let [ c, setC ] = useState( column );
+  const playerHasWon = false;
+  const [ column, setColumn ] = useState( new Array( 6 ).fill( 0 ) );
+  const [ columnVisible, setColumnVisible ] =
+    useState( column.map( ( replaced, index ) =>
+      <Slot player={column[index]} index={index} key={index}/> ) );
+
 
   return (
-    <TouchableOpacity onPress={() => {
-      c.pop();
-      console.log( c );
-      setC( c );
+    <TouchableOpacity disabled={playerHasWon ? true : false} onPress={() => {
+      let colCopy = column;
+      let colVisCopy = columnVisible;
+      let tempPlayer = props.player;
+      for( let i = column.length - 1; i >= 0; i-- ) {
+        if( column[i] == 0 ) {
+          colCopy[i] = props.player;
+          if ( props.player == 1 ) tempPlayer++;
+          else tempPlayer--;
+          props.setPlayer( tempPlayer );
+          colVisCopy[i] =
+          <Slot player={colCopy[i]} index={i} key={i}/>;
+          break;
+        }
+      }
+
+      console.log( column );
+      setColumn( colCopy );
+      setColumnVisible( colVisCopy );
 
     }}>
-      {c}
+      {columnVisible}
     </TouchableOpacity>
   );
 }
