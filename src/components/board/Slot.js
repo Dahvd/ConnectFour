@@ -8,7 +8,7 @@ export default function Slot( props ) {
         style={props.player == 0 ? styles.hole :
           props.player == 1 ? styles.red : styles.yellow} >
         <Text>
-          {props.player}
+          {/* {props.player} */}
         </Text>
       </View>
     </View>

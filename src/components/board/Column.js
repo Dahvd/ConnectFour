@@ -34,6 +34,9 @@ export default function Column( props ) {
           setColumn( colCopy );
           setColumnVisible( colVisCopy );
 
+
+
+
         }}>
         <>
           {columnVisible}
